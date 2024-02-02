@@ -64,7 +64,8 @@ mapping::MapBuilderInterface::LocalSlamResultCallback GetLocalSlamResultCallback
 // As an input, give the path to the config_files folder
 int main(int _argc, char** _argv){
     // Parse configuration
-    std::string path = _argv[1];
+    std::cout << "Parsing configuration" << std::endl;
+    std::string path = "configuration_files";
     auto fileResolver = absl::make_unique<common::ConfigurationFileResolver>(std::vector<std::string>{path});
     const std::string code = fileResolver->GetFileContentOrDie("complete_config.lua");
     common::LuaParameterDictionary lua_parameter_dictionary(code, std::move(fileResolver));
